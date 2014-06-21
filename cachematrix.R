@@ -16,11 +16,16 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 ## cacheSolve takes a matrix and returns inverse
 ## if matrick is already in cache the cache is used
+## usage
+## source("cachematrix.R")
+## mat<-makeCacheMatrix()
+## mat$set(matrix(1:4,2,2))
+## cacheSolve(a)
+
 cacheSolve <- function(x=matrix(), ...) {
   m<-x$getmatrix()
   if(!is.null(m)){
-    message("getting cached data")
-    return(m)
+       return(m)
   }
   matrix<-x$get()
   m<-solve(matrix, ...)
